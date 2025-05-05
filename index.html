@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Consulting Site - Home (Enhanced)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Poppins font globally */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #D1D5DB; /* Light gray text */
+        }
+        /* Style links for better visibility */
+        a {
+            transition: color 0.3s ease;
+        }
+        /* Custom gradient for hero or buttons (optional) */
+        .gradient-text {
+            background: linear-gradient(to right, #4F46E5, #A855F7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .gradient-button {
+             background: linear-gradient(to right, #4F46E5, #6D28D9);
+             transition: background 0.3s ease;
+        }
+        .gradient-button:hover {
+             background: linear-gradient(to right, #6D28D9, #4F46E5);
+        }
+        /* Simple fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Add subtle border to nav on scroll (requires JS, simplified here) */
+        nav {
+             border-bottom: 1px solid transparent; /* Start transparent */
+             transition: border-color 0.3s ease;
+        }
+        /* You could add JS to add a class like 'scrolled' to nav */
+        /* nav.scrolled { border-color: #374151; } */
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold text-white hover:text-indigo-400">YourBrand</a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="case-studies.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Case Studies</a>
+                    <a href="testimonials.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Testimonials</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800/90 backdrop-blur-sm pb-4">
+            <a href="index.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="case-studies.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Case Studies</a>
+            <a href="testimonials.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Testimonials</a>
+            <a href="contact.html" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+
+        <section class="text-center mb-20 md:mb-32 fade-in">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+                Elevate Your <span class="gradient-text">Amazon</span> Business
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+                Expert strategies and hands-on management to scale your brand on the world's largest marketplace. Let's unlock your potential.
+            </p>
+            <a href="contact.html" class="gradient-button text-white font-semibold py-3 px-8 rounded-lg text-lg inline-block shadow-lg hover:shadow-xl transition duration-300">
+                Get Your Free Audit
+            </a>
+        </section>
+
+        <section class="bg-gray-800/50 p-8 md:p-12 rounded-xl shadow-xl mb-16 md:mb-24 fade-in" style="animation-delay: 0.2s;">
+             <h2 class="text-3xl font-bold text-white mb-6 text-center">What We Do</h2>
+             <p class="text-gray-300 text-center max-w-2xl mx-auto mb-8">
+                 We provide comprehensive Amazon consulting services, from listing optimization and PPC management to brand strategy and growth hacking.
+             </p>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                 <div class="bg-gray-700/50 p-6 rounded-lg shadow-md">
+                     <h3 class="text-xl font-semibold text-white mb-2">PPC Mastery</h3>
+                     <p class="text-gray-400 text-sm">Maximize ROI with data-driven advertising campaigns.</p>
+                 </div>
+                 <div class="bg-gray-700/50 p-6 rounded-lg shadow-md">
+                     <h3 class="text-xl font-semibold text-white mb-2">Listing Optimization</h3>
+                     <p class="text-gray-400 text-sm">Convert more shoppers with compelling copy and visuals.</p>
+                 </div>
+                 <div class="bg-gray-700/50 p-6 rounded-lg shadow-md">
+                     <h3 class="text-xl font-semibold text-white mb-2">Growth Strategy</h3>
+                     <p class="text-gray-400 text-sm">Develop a roadmap for sustainable scaling and success.</p>
+                 </div>
+             </div>
+        </section>
+
+        <section class="text-center mb-16 md:mb-24 fade-in" style="animation-delay: 0.4s;">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Grow?</h2>
+            <p class="text-gray-400 mb-6">See how we've helped businesses like yours succeed.</p>
+            <a href="case-studies.html" class="text-indigo-400 hover:text-indigo-300 font-semibold text-lg">Explore Case Studies &rarr;</a>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-700/50 text-gray-400 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="year"></span> Your Brand Name. All rights reserved.</p>
+            <div class="mt-4 space-x-6">
+                <a href="index.html" class="hover:text-white text-sm">Home</a>
+                <a href="case-studies.html" class="hover:text-white text-sm">Case Studies</a>
+                <a href="testimonials.html" class="hover:text-white text-sm">Testimonials</a>
+                <a href="contact.html" class="hover:text-white text-sm">Contact Us</a>
+                </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Optional: Add class to nav on scroll (basic example)
+        // const nav = document.querySelector('nav');
+        // window.addEventListener('scroll', () => {
+        //     if (window.scrollY > 10) {
+        //         nav.classList.add('scrolled'); // Add a class for styling scrolled state
+        //     } else {
+        //         nav.classList.remove('scrolled');
+        //     }
+        // });
+    </script>
+
+</body>
+</html>
+
+
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 fade-in">
+    <section class="bg-gray-800/50 p-8 md:p-12 rounded-xl shadow-xl">
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-6 text-center">Get in Touch</h1>
+        <p class="text-lg text-gray-400 mb-10 text-center">We're here to help. Fill out the form below or email us directly.</p>
+
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
+                <input type="text" name="name" id="name" required
+                       class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
+                <input type="email" name="email" id="email" required
+                       class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
+            </div>
+            <div>
+                <label for="subject" class="block text-sm font-medium text-gray-300">Subject (Optional)</label>
+                <input type="text" name="subject" id="subject"
+                       class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
+            </div>
+            <div>
+                <label for="message" class="block text-sm font-medium text-gray-300">Your Message</label>
+                <textarea id="message" name="message" rows="5" required
+                          class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400"></textarea>
+            </div>
+            <div>
+                <button type="submit"
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-sm font-semibold text-white gradient-button focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-gray-900 transition duration-300">
+                    Send Message
+                </button>
+            </div>
+        </form>
+        </section>
+</main>
+<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 fade-in">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">What Our Clients Say</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50">
+            <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+            <blockquote class="text-gray-300 italic text-lg mb-6">
+                "A true partner in growth. Their strategic approach to Amazon advertising dramatically increased our visibility and sales far beyond expectations."
+            </blockquote>
+            <p class="text-right font-semibold text-white">- Client Name</p>
+            <p class="text-right text-sm text-gray-400">CEO, Company XYZ</p>
+        </div>
+
+        <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50">
+             <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+            <blockquote class="text-gray-300 italic text-lg mb-6">
+                "The listing optimization they performed was incredible. We saw conversion rates jump significantly almost overnight. Highly recommended."
+            </blockquote>
+            <p class="text-right font-semibold text-white">- Another Client</p>
+             <p class="text-right text-sm text-gray-400">Marketing Manager, ABC Corp</p>
+        </div>
+
+         <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50 md:col-span-2"> {/* Example spanning two columns on medium screens */}
+             <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+            <blockquote class="text-gray-300 italic text-lg mb-6">
+                "Navigating Amazon's complexities was daunting until we partnered with [Your Brand]. Their team is knowledgeable, responsive, and delivered tangible results."
+            </blockquote>
+            <p class="text-right font-semibold text-white">- Satisfied Customer</p>
+             <p class="text-right text-sm text-gray-400">Founder, Startup Inc.</p>
+        </div>
+    </div>
+</main>
+<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 fade-in">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Success Stories</h1>
+
+    <div class="space-y-12 md:space-y-16">
+        <div class="bg-gray-800/50 p-8 md:p-10 rounded-xl shadow-xl border border-gray-700/50 overflow-hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-4">Scaling Sales by 300% for a Pet Supplies Brand</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 text-sm">
+                <div class="bg-gray-700/60 p-4 rounded-lg">
+                    <h3 class="font-semibold text-white mb-1">Challenge</h3>
+                    <p class="text-gray-300">Stagnant sales growth and increasing ad costs despite a quality product line.</p>
+                </div>
+                 <div class="bg-gray-700/60 p-4 rounded-lg">
+                    <h3 class="font-semibold text-white mb-1">Solution</h3>
+                    <p class="text-gray-300">Revamped PPC structure, enhanced listing content (copy & A+), and strategic keyword targeting.</p>
+                </div>
+                 <div class="bg-gray-700/60 p-4 rounded-lg">
+                    <h3 class="font-semibold text-white mb-1">Results</h3>
+                    <p class="text-gray-300">Achieved 3x sales increase in 6 months, reduced ACoS by 15%, improved organic rank.</p>
+                </div>
+            </div>
+             <p class="text-gray-400 leading-relaxed">
+                Detailed description: We conducted an in-depth audit identifying key areas for improvement. By restructuring their ad campaigns focusing on long-tail keywords and optimizing bids, we significantly lowered wasted spend. Simultaneously, enhancing the product detail pages with benefit-driven copy and visually appealing A+ Content improved conversion rates, creating a powerful synergy that fueled rapid growth... [Add more detail]
+            </p>
+             </div>
+
+        <div class="bg-gray-800/50 p-8 md:p-10 rounded-xl shadow-xl border border-gray-700/50 overflow-hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-4">Successful New Product Launch in Competitive Electronics</h2>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 text-sm">
+                <div class="bg-gray-700/60 p-4 rounded-lg">
+                    <h3 class="font-semibold text-white mb-1">Challenge</h3>
+                    <p class="text-gray-300">Launching a new Bluetooth speaker against established competitors with high review counts.</p>
+                </div>
+                 <div class="bg-gray-700/60 p-4 rounded-lg">
+                    <h3 class="font-semibold text-white mb-1">Solution</h3>
+                    <p class="text-gray-300">Pre-launch buzz generation, aggressive launch PPC strategy, Vine program utilization, optimized listing.</p>
+                </div>
+                 <div class="bg-gray-700/60 p-4 rounded-lg">
+                    <h3 class="font-semibold text-white mb-1">Results</h3>
+                    <p class="text-gray-300">Secured 'Amazon's Choice' badge within 8 weeks, achieved 50+ reviews (4.5 avg), exceeded initial sales targets by 40%.</p>
+                </div>
+            </div>
+             <p class="text-gray-400 leading-relaxed">
+                Detailed description: Our launch plan focused on building momentum quickly. We utilized targeted Sponsored Products campaigns for discovery and Sponsored Brands video ads to showcase features. Enrolling in the Vine program secured early, high-quality reviews. The listing was meticulously crafted to highlight unique selling points and address potential customer concerns, leading to strong initial conversion and ranking... [Add more detail]
+            </p>
+        </div>
+
+        </div>
+</main>
