@@ -16,6 +16,13 @@
             background-color: #111827; /* Dark background */
             color: #D1D5DB; /* Light gray text */
         }
+
+        /* Add scroll-padding-top to the html element */
+        html {
+            scroll-padding-top: 10rem; /* Adjust this value to match your nav's h-40 (10rem) */
+            /* scroll-smooth is already applied via class in the html tag */
+        }
+
         /* Style links for better visibility */
         a {
             transition: color 0.3s ease;
@@ -28,11 +35,11 @@
             color: transparent;
         }
         .gradient-button {
-             background: linear-gradient(to right, #6D28D9, #A855F7);
-             transition: background 0.3s ease;
+            background: linear-gradient(to right, #6D28D9, #A855F7);
+            transition: background 0.3s ease;
         }
         .gradient-button:hover {
-             background: linear-gradient(to right, #A855F7, #6D28D9);
+            background: linear-gradient(to right, #A855F7, #6D28D9);
         }
         /* Simple fade-in animation */
         @keyframes fadeIn {
@@ -43,19 +50,11 @@
             animation: fadeIn 0.5s ease-out forwards;
         }
         nav {
-             border-bottom: 1px solid transparent;
-             transition: border-color 0.3s ease;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
         }
 
-        /* Target pseudo-element for scroll offset */
-        /* This value (160px) should match the actual rendered height of your sticky nav bar */
-        section:target::before {
-            content: "";
-            display: block;
-            height: 160px; /* Corresponds to h-40 (10rem * 16px/rem) */
-            margin-top: -160px; /* Negative of the nav height */
-            visibility: hidden; /* Make the spacer invisible */
-        }
+        /* REMOVED THE OLD section:target::before CSS BLOCK */
 
         /* === CSS FOR SCROLLING BRAND LOGOS (Small, Rightward) === */
         .brand-logos-container {
@@ -67,7 +66,6 @@
             display: flex;
             width: max-content; /* Calculate width based on content */
             white-space: nowrap;
-            /* User-preferred scroll-right animation */
             animation: scroll-right 180s linear infinite;
         }
         .brand-logos-slide:hover {
@@ -76,26 +74,21 @@
         .brand-logos-slide img {
             height: 56px; /* h-14 */
             width: auto;
-            object-fit: contain; /* Use contain to prevent squishing */
-            margin: 0 15px; /* Reduced spacing */
+            object-fit: contain;
+            margin: 0 15px;
             filter: grayscale(100%);
             opacity: 0.7;
             transition: filter 0.3s ease, opacity 0.3s ease;
         }
         .brand-logos-slide img:hover {
-             filter: grayscale(0%);
-             opacity: 1;
+            filter: grayscale(0%);
+            opacity: 1;
         }
-        /* User-preferred Keyframes for scroll-right */
-        /* Note: For a truly seamless infinite loop with duplicated content, */
-        /* keyframes typically translate from -100% to 0% or 0% to -100% */
-        /* of the width of one set of the items. */
         @keyframes scroll-right {
             0% { transform: translateX(-50%); }
             100% { transform: translateX(50%); }
         }
         /* === END OF BRAND LOGOS CSS === */
-
 
         /* === CSS FOR SCROLLING LIFESTYLE IMAGES (Large, Leftward) === */
         .lifestyle-container {
@@ -107,7 +100,6 @@
             display: flex;
             width: max-content; /* Calculate width based on content */
             white-space: nowrap;
-            /* Use standard scroll-left animation */
             animation: scroll-left 120s linear infinite;
         }
         .lifestyle-slide:hover {
@@ -120,32 +112,29 @@
             margin: 0 10px;
             filter: grayscale(100%);
             border-radius: 0.5rem; /* lg */
-            transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease; /* Added filter and opacity */
-            /* Initial state for lifestyle images (optional, if you want them grayscale too) */
-            /* filter: grayscale(100%); */
-            /* opacity: 0.8; */
+            transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
         }
         .lifestyle-slide img:hover {
-             transform: scale(1.03);
-             filter: grayscale(0%); /* Make color on hover */
-             opacity: 1;            /* Full opacity on hover */
+            transform: scale(1.03);
+            filter: grayscale(0%);
+            opacity: 1;
         }
-        /* Define scroll-left keyframes */
         @keyframes scroll-left {
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
         /* === END OF LIFESTYLE IMAGES CSS === */
-
     </style>
 </head>
 <body class="antialiased">
 
     <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-700/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-40"> <div class="flex-shrink-0">
+            <div class="flex justify-between items-center h-40"> {/* This h-40 sets the height (10rem) */}
+                <div class="flex-shrink-0">
                     <a href="#home" class="flex items-center">
-                        <img class="h-32 w-auto" src="logo-transparent.png" alt="OCHO Logo"> </a>
+                        <img class="h-32 w-auto" src="logo-transparent.png" alt="OCHO Logo">
+                    </a>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
@@ -171,7 +160,6 @@
     </nav>
 
     <main>
-
         <section id="home" class="text-center pt-12 md:pt-20 pb-8 md:pb-12 px-4 sm:px-6 lg:px-8 fade-in">
             <div class="max-w-7xl mx-auto">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
@@ -187,70 +175,70 @@
         </section>
 
         <section class="py-8 md:py-12 fade-in">
-             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="brand-logos-container">
-                     <div class="brand-logos-slide">
-                         <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
-                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
-                         <img src="mosh-transparent.png" alt="Mosh Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
-                         <img src="Huel-transparent.png" alt="Huel Logo">
-                         <img src="create-transparent.png" alt="Create Logo">
-                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
-                         <img src="ororo-transparent.png" alt="Ororo Logo">
-                         <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
-                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
-                         <img src="mosh-transparent.png" alt="Mosh Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
-                         <img src="Huel-transparent.png" alt="Huel Logo">
-                         <img src="create-transparent.png" alt="Create Logo">
-                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
-                         <img src="ororo-transparent.png" alt="Ororo Logo">
-                         <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
-                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
-                         <img src="mosh-transparent.png" alt="Mosh Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
-                         <img src="Huel-transparent.png" alt="Huel Logo">
-                         <img src="create-transparent.png" alt="Create Logo">
-                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
-                         <img src="ororo-transparent.png" alt="Ororo Logo">
-                     </div>
-                 </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="brand-logos-container">
+                    <div class="brand-logos-slide">
+                        <img src="RAGU-transparent.png" alt="RAGU Logo">
+                        <img src="OLIPOP-transparent.png" alt="Olipop Logo">
+                        <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
+                        <img src="mosh-transparent.png" alt="Mosh Logo">
+                        <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
+                        <img src="Huel-transparent.png" alt="Huel Logo">
+                        <img src="create-transparent.png" alt="Create Logo">
+                        <img src="Bertolli-transparent.png" alt="Bertolli Logo">
+                        <img src="ororo-transparent.png" alt="Ororo Logo">
+                        <img src="RAGU-transparent.png" alt="RAGU Logo">
+                        <img src="OLIPOP-transparent.png" alt="Olipop Logo">
+                        <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
+                        <img src="mosh-transparent.png" alt="Mosh Logo">
+                        <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
+                        <img src="Huel-transparent.png" alt="Huel Logo">
+                        <img src="create-transparent.png" alt="Create Logo">
+                        <img src="Bertolli-transparent.png" alt="Bertolli Logo">
+                        <img src="ororo-transparent.png" alt="Ororo Logo">
+                        <img src="RAGU-transparent.png" alt="RAGU Logo">
+                        <img src="OLIPOP-transparent.png" alt="Olipop Logo">
+                        <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
+                        <img src="mosh-transparent.png" alt="Mosh Logo">
+                        <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
+                        <img src="Huel-transparent.png" alt="Huel Logo">
+                        <img src="create-transparent.png" alt="Create Logo">
+                        <img src="Bertolli-transparent.png" alt="Bertolli Logo">
+                        <img src="ororo-transparent.png" alt="Ororo Logo">
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="lifestyle-images" class="pt-8 md:pt-12 pb-16 md:pb-24 fade-in">
-             <div class="max-w-full mx-auto px-0">
-                 <div class="lifestyle-container">
-                     <div class="lifestyle-slide">
-                         <img src="ATAHANA ls.png" alt="Atahana Lifestyle Image">
-                         <img src="BAOFENG ls.png" alt="Baofeng Lifestyle Image">
-                         <img src="Generation Guard ls.png" alt="Generation Guard Lifestyle Image">
-                         <img src="Mosh ls.png" alt="Mosh Lifestyle Image">
-                         <img src="RAGU ls.png" alt="Ragu Lifestyle Image">
-                         <img src="Skin Clinic ls.png" alt="Skin Clinic Lifestyle Image">
-                         <img src="create ls.png" alt="Create Lifestyle Image">
-                         <img src="lemon perfect ls.png" alt="Lemon Perfect Lifestyle Image">
-                         <img src="ororo ls.png" alt="Ororo Lifestyle Image">
-                         <img src="ATAHANA ls.png" alt="Atahana Lifestyle Image">
-                         <img src="BAOFENG ls.png" alt="Baofeng Lifestyle Image">
-                         <img src="Generation Guard ls.png" alt="Generation Guard Lifestyle Image">
-                         <img src="Mosh ls.png" alt="Mosh Lifestyle Image">
-                         <img src="RAGU ls.png" alt="Ragu Lifestyle Image">
-                         <img src="Skin Clinic ls.png" alt="Skin Clinic Lifestyle Image">
-                         <img src="create ls.png" alt="Create Lifestyle Image">
-                         <img src="lemon perfect ls.png" alt="Lemon Perfect Lifestyle Image">
-                         <img src="ororo ls.png" alt="Ororo Lifestyle Image">
-                         </div>
-                 </div>
+            <div class="max-w-full mx-auto px-0">
+                <div class="lifestyle-container">
+                    <div class="lifestyle-slide">
+                        <img src="ATAHANA ls.png" alt="Atahana Lifestyle Image">
+                        <img src="BAOFENG ls.png" alt="Baofeng Lifestyle Image">
+                        <img src="Generation Guard ls.png" alt="Generation Guard Lifestyle Image">
+                        <img src="Mosh ls.png" alt="Mosh Lifestyle Image">
+                        <img src="RAGU ls.png" alt="Ragu Lifestyle Image">
+                        <img src="Skin Clinic ls.png" alt="Skin Clinic Lifestyle Image">
+                        <img src="create ls.png" alt="Create Lifestyle Image">
+                        <img src="lemon perfect ls.png" alt="Lemon Perfect Lifestyle Image">
+                        <img src="ororo ls.png" alt="Ororo Lifestyle Image">
+                        <img src="ATAHANA ls.png" alt="Atahana Lifestyle Image">
+                        <img src="BAOFENG ls.png" alt="Baofeng Lifestyle Image">
+                        <img src="Generation Guard ls.png" alt="Generation Guard Lifestyle Image">
+                        <img src="Mosh ls.png" alt="Mosh Lifestyle Image">
+                        <img src="RAGU ls.png" alt="Ragu Lifestyle Image">
+                        <img src="Skin Clinic ls.png" alt="Skin Clinic Lifestyle Image">
+                        <img src="create ls.png" alt="Create Lifestyle Image">
+                        <img src="lemon perfect ls.png" alt="Lemon Perfect Lifestyle Image">
+                        <img src="ororo ls.png" alt="Ororo Lifestyle Image">
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="services" class="bg-gray-800/50 py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in" style="animation-delay: 0.2s;">
-             <div class="max-w-7xl mx-auto">
+            <div class="max-w-7xl mx-auto">
                 <h2 class="text-3xl font-bold text-white mb-6 text-center">What We Do</h2>
                 <p class="text-gray-300 text-center max-w-2xl mx-auto mb-12">
                     We provide comprehensive Amazon consulting services...
@@ -269,7 +257,7 @@
                         <p class="text-gray-400 text-sm">Develop a roadmap...</p>
                     </div>
                 </div>
-             </div>
+            </div>
         </section>
 
         <section id="case-studies" class="bg-gray-800/50 py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in">
@@ -287,12 +275,12 @@
                     </div>
                     <div class="bg-gray-700/50 p-8 md:p-10 rounded-xl shadow-xl border border-gray-700/50 overflow-hidden">
                         <h2 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-4">Successful New Product Launch...</h2>
-                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 text-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 text-sm">
                             <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Challenge</h3><p class="text-gray-300">Launching a new Bluetooth speaker...</p></div>
                             <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Solution</h3><p class="text-gray-300">Pre-launch buzz generation...</p></div>
                             <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Results</h3><p class="text-gray-300">Secured 'Amazon's Choice' badge...</p></div>
                         </div>
-                         <p class="text-gray-400 leading-relaxed">Detailed description... [Add more detail]</p>
+                        <p class="text-gray-400 leading-relaxed">Detailed description... [Add more detail]</p>
                     </div>
                 </div>
             </div>
@@ -308,12 +296,12 @@
                         <p class="text-right font-semibold text-white">- Client Name</p><p class="text-right text-sm text-gray-400">CEO, Company XYZ</p>
                     </div>
                     <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50">
-                         <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+                        <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
                         <blockquote class="text-gray-300 italic text-lg mb-6">"The listing optimization..."</blockquote>
                         <p class="text-right font-semibold text-white">- Another Client</p><p class="text-right text-sm text-gray-400">Marketing Manager, ABC Corp</p>
                     </div>
-                      <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50 md:col-span-2">
-                         <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+                    <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50 md:col-span-2">
+                        <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
                         <blockquote class="text-gray-300 italic text-lg mb-6">"Navigating Amazon's complexities..."</blockquote>
                         <p class="text-right font-semibold text-white">- Satisfied Customer</p><p class="text-right text-sm text-gray-400">Founder, Startup Inc.</p>
                     </div>
@@ -350,7 +338,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-gray-900 border-t border-gray-700/50 text-gray-400 py-8">
