@@ -20,15 +20,15 @@
         a {
             transition: color 0.3s ease;
         }
-        /* Custom gradient for hero or buttons (adjusted to match logo better) */
+        /* Custom gradient for hero or buttons */
         .gradient-text {
-            background: linear-gradient(to right, #8B5CF6, #EC4899); /* Adjusted gradient */
+            background: linear-gradient(to right, #8B5CF6, #EC4899);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         .gradient-button {
-             background: linear-gradient(to right, #6D28D9, #A855F7); /* Adjusted gradient */
+             background: linear-gradient(to right, #6D28D9, #A855F7);
              transition: background 0.3s ease;
         }
         .gradient-button:hover {
@@ -43,59 +43,128 @@
             animation: fadeIn 0.5s ease-out forwards;
         }
         nav {
-             border-bottom: 1px solid transparent; /* Start transparent */
+             border-bottom: 1px solid transparent;
              transition: border-color 0.3s ease;
         }
-        /* Target pseudo-element for scroll offset (adjust pt-20 if nav height changes) */
+
+        /* === UPDATED Scroll Offset === */
+        /* Target pseudo-element for scroll offset */
         section:target::before {
             content: "";
             display: block;
-            height: 80px; /* Same as nav height (md:h-20) */
-            margin-top: -80px; /* Negative nav height */
+            /* Updated height to match new nav height (h-40 = 160px) */
+            height: 160px;
+            /* Updated margin to match new nav height */
+            margin-top: -160px;
             visibility: hidden;
         }
+        /* === END OF Scroll Offset Update === */
+
+        /* === CSS FOR SCROLLING BRAND LOGOS === */
+        .brand-logos-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .brand-logos-slide {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: scroll-right 45s linear infinite;
+        }
+        .brand-logos-slide:hover {
+            animation-play-state: paused;
+        }
+        .brand-logos-slide img {
+            height: 56px;
+            width: auto;
+            margin: 0 15px; /* Reduced spacing */
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .brand-logos-slide img:hover {
+             filter: grayscale(0%);
+             opacity: 1;
+        }
+        @keyframes scroll-right {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+        /* === END OF BRAND LOGOS CSS === */
+
+
+        /* === CSS FOR SCROLLING LIFESTYLE IMAGES === */
+        .lifestyle-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .lifestyle-slide {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: scroll-left 45s linear infinite;
+        }
+        .lifestyle-slide:hover {
+            animation-play-state: paused;
+        }
+        .lifestyle-slide img {
+            height: 256px; /* h-64 */
+            width: 256px;  /* w-64 */
+            object-fit: cover;
+            margin: 0 10px;
+            border-radius: 0.5rem; /* lg */
+            transition: transform 0.3s ease;
+        }
+        .lifestyle-slide img:hover {
+             transform: scale(1.03);
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        /* === END OF LIFESTYLE IMAGES CSS === */
+
     </style>
 </head>
 <body class="antialiased">
 
-   <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-700/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16 md:h-20"> <div class="flex-shrink-0">
-                <a href="#home" class="flex items-center">
-                    <img class="h-32 w-auto" src="logo-transparent.png" alt="OCHO Logo">
+    <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-40">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="flex items-center">
+                        <img class="h-32 w-auto" src="logo-transparent.png" alt="OCHO Logo">
                     </a>
-            </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                <a href="#case-studies" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Case Studies</a>
-                <a href="#testimonials" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Testimonials</a>
-                <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
-            </div>
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none focus:text-white">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                    <a href="#case-studies" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Case Studies</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Testimonials</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-gray-800/90 backdrop-blur-sm pb-4">
-        <a href="#home" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <a href="#services" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Services</a>
-        <a href="#case-studies" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Case Studies</a>
-        <a href="#testimonials" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Testimonials</a>
-        <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
-    </div>
-</nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800/90 backdrop-blur-sm pb-4">
+            <a href="#home" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="#services" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Services</a>
+            <a href="#case-studies" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Case Studies</a>
+            <a href="#testimonials" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Testimonials</a>
+            <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact Us</a>
+        </div>
+    </nav>
 
     <main>
 
-        <section id="home" class="text-center pt-12 md:pt-20 pb-12 md:pb-20 px-4 sm:px-6 lg:px-8 fade-in">
+        <section id="home" class="text-center pt-12 md:pt-20 pb-8 md:pb-12 px-4 sm:px-6 lg:px-8 fade-in">
             <div class="max-w-7xl mx-auto">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
-                    Elev-8 Your <span class="gradient-text">Amazon</span> Business with OCHO
+                    Elevate Your <span class="gradient-text">Amazon</span> Business with OCHO
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
                     Expert strategies and hands-on management to scale your brand on the world's largest marketplace. Let's unlock your potential.
@@ -106,141 +175,147 @@
             </div>
         </section>
 
+        <section class="py-8 md:py-12 fade-in">
+             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="brand-logos-container">
+                     <div class="brand-logos-slide">
+                         <img src="https://placehold.co/150x56/374151/E5E7EB?text=BrandA" alt="Brand A Logo">
+                         <img src="https://placehold.co/120x56/374151/E5E7EB?text=BrandB" alt="Brand B Logo">
+                         <img src="https://placehold.co/180x56/374151/E5E7EB?text=BrandC" alt="Brand C Logo">
+                         <img src="https://placehold.co/100x56/374151/E5E7EB?text=BrandD" alt="Brand D Logo">
+                         <img src="https://placehold.co/160x56/374151/E5E7EB?text=BrandE" alt="Brand E Logo">
+                         <img src="https://placehold.co/140x56/374151/E5E7EB?text=BrandF" alt="Brand F Logo">
+                         <img src="https://placehold.co/150x56/374151/E5E7EB?text=BrandA" alt="Brand A Logo">
+                         <img src="https://placehold.co/120x56/374151/E5E7EB?text=BrandB" alt="Brand B Logo">
+                         <img src="https://placehold.co/180x56/374151/E5E7EB?text=BrandC" alt="Brand C Logo">
+                         <img src="https://placehold.co/100x56/374151/E5E7EB?text=BrandD" alt="Brand D Logo">
+                         <img src="https://placehold.co/160x56/374151/E5E7EB?text=BrandE" alt="Brand E Logo">
+                         <img src="https://placehold.co/140x56/374151/E5E7EB?text=BrandF" alt="Brand F Logo">
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="lifestyle-images" class="pt-8 md:pt-12 pb-16 md:pb-24 fade-in">
+             <div class="max-w-full mx-auto px-0">
+                 <div class="lifestyle-container">
+                     <div class="lifestyle-slide">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img1" alt="Lifestyle Image 1">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img2" alt="Lifestyle Image 2">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img3" alt="Lifestyle Image 3">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img4" alt="Lifestyle Image 4">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img5" alt="Lifestyle Image 5">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img6" alt="Lifestyle Image 6">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img1" alt="Lifestyle Image 1">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img2" alt="Lifestyle Image 2">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img3" alt="Lifestyle Image 3">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img4" alt="Lifestyle Image 4">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img5" alt="Lifestyle Image 5">
+                         <img src="https://placehold.co/256x256/cccccc/666666?text=Img6" alt="Lifestyle Image 6">
+                     </div>
+                 </div>
+            </div>
+        </section>
+
         <section id="services" class="bg-gray-800/50 py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in" style="animation-delay: 0.2s;">
              <div class="max-w-7xl mx-auto">
                 <h2 class="text-3xl font-bold text-white mb-6 text-center">What We Do</h2>
                 <p class="text-gray-300 text-center max-w-2xl mx-auto mb-12">
-                    We provide comprehensive Amazon consulting services, from listing optimization and PPC management to brand strategy and growth hacking.
+                    We provide comprehensive Amazon consulting services...
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div class="bg-gray-700/50 p-6 rounded-lg shadow-md hover:bg-gray-700 transition duration-300">
                         <h3 class="text-xl font-semibold text-white mb-2">PPC Mastery</h3>
-                        <p class="text-gray-400 text-sm">Maximize ROI with data-driven advertising campaigns.</p>
+                        <p class="text-gray-400 text-sm">Maximize ROI...</p>
                     </div>
                     <div class="bg-gray-700/50 p-6 rounded-lg shadow-md hover:bg-gray-700 transition duration-300">
                         <h3 class="text-xl font-semibold text-white mb-2">Listing Optimization</h3>
-                        <p class="text-gray-400 text-sm">Convert more shoppers with compelling copy and visuals.</p>
+                        <p class="text-gray-400 text-sm">Convert more shoppers...</p>
                     </div>
                     <div class="bg-gray-700/50 p-6 rounded-lg shadow-md hover:bg-gray-700 transition duration-300">
                         <h3 class="text-xl font-semibold text-white mb-2">Growth Strategy</h3>
-                        <p class="text-gray-400 text-sm">Develop a roadmap for sustainable scaling and success.</p>
+                        <p class="text-gray-400 text-sm">Develop a roadmap...</p>
                     </div>
                 </div>
              </div>
         </section>
 
-        <section id="case-studies" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in">
-            <div class="max-w-5xl mx-auto"> <h1 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Success Stories</h1>
+        <section id="case-studies" class="bg-gray-800/50 py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Success Stories</h1>
                 <div class="space-y-12 md:space-y-16">
-                    <div class="bg-gray-800/50 p-8 md:p-10 rounded-xl shadow-xl border border-gray-700/50 overflow-hidden">
-                        <h2 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-4">Scaling Sales by 300% for a Pet Supplies Brand</h2>
+                    <div class="bg-gray-700/50 p-8 md:p-10 rounded-xl shadow-xl border border-gray-700/50 overflow-hidden">
+                        <h2 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-4">Scaling Sales by 300%...</h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 text-sm">
-                            <div class="bg-gray-700/60 p-4 rounded-lg">
-                                <h3 class="font-semibold text-white mb-1">Challenge</h3>
-                                <p class="text-gray-300">Stagnant sales growth and increasing ad costs despite a quality product line.</p>
-                            </div>
-                             <div class="bg-gray-700/60 p-4 rounded-lg">
-                                <h3 class="font-semibold text-white mb-1">Solution</h3>
-                                <p class="text-gray-300">Revamped PPC structure, enhanced listing content (copy & A+), and strategic keyword targeting.</p>
-                            </div>
-                             <div class="bg-gray-700/60 p-4 rounded-lg">
-                                <h3 class="font-semibold text-white mb-1">Results</h3>
-                                <p class="text-gray-300">Achieved 3x sales increase in 6 months, reduced ACoS by 15%, improved organic rank.</p>
-                            </div>
+                            <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Challenge</h3><p class="text-gray-300">Stagnant sales growth...</p></div>
+                            <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Solution</h3><p class="text-gray-300">Revamped PPC structure...</p></div>
+                            <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Results</h3><p class="text-gray-300">Achieved 3x sales increase...</p></div>
                         </div>
-                         <p class="text-gray-400 leading-relaxed">
-                            Detailed description: We conducted an in-depth audit identifying key areas for improvement. By restructuring their ad campaigns focusing on long-tail keywords and optimizing bids, we significantly lowered wasted spend. Simultaneously, enhancing the product detail pages with benefit-driven copy and visually appealing A+ Content improved conversion rates, creating a powerful synergy that fueled rapid growth... [Add more detail]
-                        </p>
+                        <p class="text-gray-400 leading-relaxed">Detailed description... [Add more detail]</p>
                     </div>
-                    <div class="bg-gray-800/50 p-8 md:p-10 rounded-xl shadow-xl border border-gray-700/50 overflow-hidden">
-                        <h2 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-4">Successful New Product Launch in Competitive Electronics</h2>
+                    <div class="bg-gray-700/50 p-8 md:p-10 rounded-xl shadow-xl border border-gray-700/50 overflow-hidden">
+                        <h2 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-4">Successful New Product Launch...</h2>
                          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 text-sm">
-                            <div class="bg-gray-700/60 p-4 rounded-lg">
-                                <h3 class="font-semibold text-white mb-1">Challenge</h3>
-                                <p class="text-gray-300">Launching a new Bluetooth speaker against established competitors with high review counts.</p>
-                            </div>
-                             <div class="bg-gray-700/60 p-4 rounded-lg">
-                                <h3 class="font-semibold text-white mb-1">Solution</h3>
-                                <p class="text-gray-300">Pre-launch buzz generation, aggressive launch PPC strategy, Vine program utilization, optimized listing.</p>
-                            </div>
-                             <div class="bg-gray-700/60 p-4 rounded-lg">
-                                <h3 class="font-semibold text-white mb-1">Results</h3>
-                                <p class="text-gray-300">Secured 'Amazon's Choice' badge within 8 weeks, achieved 50+ reviews (4.5 avg), exceeded initial sales targets by 40%.</p>
-                            </div>
+                            <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Challenge</h3><p class="text-gray-300">Launching a new Bluetooth speaker...</p></div>
+                            <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Solution</h3><p class="text-gray-300">Pre-launch buzz generation...</p></div>
+                            <div class="bg-gray-700/60 p-4 rounded-lg"><h3 class="font-semibold text-white mb-1">Results</h3><p class="text-gray-300">Secured 'Amazon's Choice' badge...</p></div>
                         </div>
-                         <p class="text-gray-400 leading-relaxed">
-                            Detailed description: Our launch plan focused on building momentum quickly. We utilized targeted Sponsored Products campaigns for discovery and Sponsored Brands video ads to showcase features. Enrolling in the Vine program secured early, high-quality reviews. The listing was meticulously crafted to highlight unique selling points and address potential customer concerns, leading to strong initial conversion and ranking... [Add more detail]
-                        </p>
-                    </div>
-                    </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="bg-gray-800/50 py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in">
-            <div class="max-w-5xl mx-auto"> <h1 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">What Our Clients Say</h1>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                    <div class="bg-gray-700/50 p-8 rounded-xl shadow-xl border border-gray-700/50">
-                        <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
-                        <blockquote class="text-gray-300 italic text-lg mb-6">
-                            "A true partner in growth. Their strategic approach to Amazon advertising dramatically increased our visibility and sales far beyond expectations."
-                        </blockquote>
-                        <p class="text-right font-semibold text-white">- Client Name</p>
-                        <p class="text-right text-sm text-gray-400">CEO, Company XYZ</p>
-                    </div>
-                    <div class="bg-gray-700/50 p-8 rounded-xl shadow-xl border border-gray-700/50">
-                         <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
-                        <blockquote class="text-gray-300 italic text-lg mb-6">
-                            "The listing optimization they performed was incredible. We saw conversion rates jump significantly almost overnight. Highly recommended."
-                        </blockquote>
-                        <p class="text-right font-semibold text-white">- Another Client</p>
-                         <p class="text-right text-sm text-gray-400">Marketing Manager, ABC Corp</p>
-                    </div>
-                     <div class="bg-gray-700/50 p-8 rounded-xl shadow-xl border border-gray-700/50 md:col-span-2">
-                         <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
-                        <blockquote class="text-gray-300 italic text-lg mb-6">
-                            "Navigating Amazon's complexities was daunting until we partnered with OCHO Consulting. Their team is knowledgeable, responsive, and delivered tangible results."
-                        </blockquote>
-                        <p class="text-right font-semibold text-white">- Satisfied Customer</p>
-                         <p class="text-right text-sm text-gray-400">Founder, Startup Inc.</p>
+                         <p class="text-gray-400 leading-relaxed">Detailed description... [Add more detail]</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in">
-            <div class="max-w-4xl mx-auto"> <div class="bg-gray-800/50 p-8 md:p-12 rounded-xl shadow-xl">
-                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-6 text-center">Get in Touch</h1>
-                    <p class="text-lg text-gray-400 mb-10 text-center">We're here to help. Fill out the form below or email us directly.</p>
+        <section id="testimonials" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">What Our Clients Say</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50">
+                        <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+                        <blockquote class="text-gray-300 italic text-lg mb-6">"A true partner in growth..."</blockquote>
+                        <p class="text-right font-semibold text-white">- Client Name</p><p class="text-right text-sm text-gray-400">CEO, Company XYZ</p>
+                    </div>
+                    <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50">
+                         <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+                        <blockquote class="text-gray-300 italic text-lg mb-6">"The listing optimization..."</blockquote>
+                        <p class="text-right font-semibold text-white">- Another Client</p><p class="text-right text-sm text-gray-400">Marketing Manager, ABC Corp</p>
+                    </div>
+                      <div class="bg-gray-800/50 p-8 rounded-xl shadow-xl border border-gray-700/50 md:col-span-2">
+                         <svg class="w-10 h-10 text-indigo-400 mb-4" fill="currentColor" viewBox="0 0 20 20"> <path d="M10.46 6.388c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75zm6 0c-.134-.55-.646-.988-1.246-.988h-.02c-.6 0-1.112.438-1.246.988l-.66 2.751c-.134.55.166 1.112.746 1.388l1.5.75c.58.275 1.27.037 1.546-.512l.66-2.751c.134-.55-.166-1.112-.746-1.388l-1.5-.75z"></path> </svg>
+                        <blockquote class="text-gray-300 italic text-lg mb-6">"Navigating Amazon's complexities..."</blockquote>
+                        <p class="text-right font-semibold text-white">- Satisfied Customer</p><p class="text-right text-sm text-gray-400">Founder, Startup Inc.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="contact" class="bg-gray-800/50 py-16 md:py-24 px-4 sm:px-6 lg:px-8 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <div class="p-8 md:p-12 rounded-xl shadow-xl">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-6 text-center">Get in Touch</h1>
+                    <p class="text-lg text-gray-400 mb-10 text-center">We're here to help...</p>
                     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
-                            <input type="text" name="name" id="name" required
-                                   class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
+                            <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
-                            <input type="email" name="email" id="email" required
-                                   class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
+                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-300">Subject (Optional)</label>
-                            <input type="text" name="subject" id="subject"
-                                   class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
+                            <input type="text" name="subject" id="subject" class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400">
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-300">Your Message</label>
-                            <textarea id="message" name="message" rows="5" required
-                                      class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400"></textarea>
+                            <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-4 py-3 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm placeholder-gray-400"></textarea>
                         </div>
                         <div>
-                            <button type="submit"
-                                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-sm font-semibold text-white gradient-button focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-gray-900 transition duration-300">
-                                Send Message
-                            </button>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-sm font-semibold text-white gradient-button focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-gray-900 transition duration-300">Send Message</button>
                         </div>
                     </form>
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -248,7 +323,7 @@
 
     <footer class="bg-gray-900 border-t border-gray-700/50 text-gray-400 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-             <p>&copy; <span id="year"></span> OCHO Consulting. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> OCHO Consulting. All rights reserved.</p>
             <div class="mt-4 space-x-6">
                 <a href="#home" class="hover:text-white text-sm">Home</a>
                 <a href="#services" class="hover:text-white text-sm">Services</a>
@@ -263,7 +338,7 @@
         // Mobile menu toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileNavLinks = mobileMenu.querySelectorAll('a'); // Get all links in mobile menu
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
 
         menuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
@@ -278,7 +353,6 @@
 
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
-
     </script>
 
 </body>
