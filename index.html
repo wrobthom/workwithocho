@@ -48,12 +48,13 @@
         }
 
         /* Target pseudo-element for scroll offset */
+        /* This value (160px) should match the actual rendered height of your sticky nav bar */
         section:target::before {
             content: "";
             display: block;
-            height: 160px; /* Match nav height (h-40) */
-            margin-top: -160px; /* Negative nav height */
-            visibility: hidden;
+            height: 160px; /* Corresponds to h-40 (10rem * 16px/rem) */
+            margin-top: -160px; /* Negative of the nav height */
+            visibility: hidden; /* Make the spacer invisible */
         }
 
         /* === CSS FOR SCROLLING BRAND LOGOS (Small, Rightward) === */
@@ -66,7 +67,7 @@
             display: flex;
             width: max-content; /* Calculate width based on content */
             white-space: nowrap;
-            /* Use the user-preferred scroll-right animation */
+            /* User-preferred scroll-right animation */
             animation: scroll-right 180s linear infinite;
         }
         .brand-logos-slide:hover {
@@ -85,8 +86,10 @@
              filter: grayscale(0%);
              opacity: 1;
         }
-        /* === User-preferred Keyframes for scroll-right === */
-        /* Note: This keyframe definition might not produce a seamless infinite loop */
+        /* User-preferred Keyframes for scroll-right */
+        /* Note: For a truly seamless infinite loop with duplicated content, */
+        /* keyframes typically translate from -100% to 0% or 0% to -100% */
+        /* of the width of one set of the items. */
         @keyframes scroll-right {
             0% { transform: translateX(-50%); }
             100% { transform: translateX(50%); }
@@ -115,13 +118,17 @@
             width: 256px;  /* w-64 */
             object-fit: cover;
             margin: 0 10px;
+            filter: grayscale(100%);
             border-radius: 0.5rem; /* lg */
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease; /* Added filter and opacity */
+            /* Initial state for lifestyle images (optional, if you want them grayscale too) */
+            /* filter: grayscale(100%); */
+            /* opacity: 0.8; */
         }
         .lifestyle-slide img:hover {
              transform: scale(1.03);
-             filter: grayscale(0%);
-             opacity: 1;
+             filter: grayscale(0%); /* Make color on hover */
+             opacity: 1;            /* Full opacity on hover */
         }
         /* Define scroll-left keyframes */
         @keyframes scroll-left {
@@ -210,33 +217,6 @@
                          <img src="create-transparent.png" alt="Create Logo">
                          <img src="Bertolli-transparent.png" alt="Bertolli Logo">
                          <img src="ororo-transparent.png" alt="Ororo Logo">
-                         <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
-                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
-                         <img src="mosh-transparent.png" alt="Mosh Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
-                         <img src="Huel-transparent.png" alt="Huel Logo">
-                         <img src="create-transparent.png" alt="Create Logo">
-                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
-                         <img src="ororo-transparent.png" alt="Ororo Logo">
-                         <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
-                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
-                         <img src="mosh-transparent.png" alt="Mosh Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
-                         <img src="Huel-transparent.png" alt="Huel Logo">
-                         <img src="create-transparent.png" alt="Create Logo">
-                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
-                         <img src="ororo-transparent.png" alt="Ororo Logo">
-                         <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
-                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
-                         <img src="mosh-transparent.png" alt="Mosh Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
-                         <img src="Huel-transparent.png" alt="Huel Logo">
-                         <img src="create-transparent.png" alt="Create Logo">
-                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
-                         <img src="ororo-transparent.png" alt="Ororo Logo">
                      </div>
                  </div>
             </div>
@@ -246,43 +226,25 @@
              <div class="max-w-full mx-auto px-0">
                  <div class="lifestyle-container">
                      <div class="lifestyle-slide">
-                         <img src="ATAHANA ls.png" alt="Lifestyle Image 1">
-                         <img src="BAOFENG ls.png" alt="Lifestyle Image 2">
-                         <img src="Generation Guard ls.png" alt="Lifestyle Image 3">
-                         <img src="Mosh ls.png" alt="Lifestyle Image 4">
-                         <img src="RAGU ls.png" alt="Lifestyle Image 5">
-                         <img src="Skin Clinic ls.png" alt="Lifestyle Image 6">
-                         <img src="create ls.png" alt="Lifestyle Image 1">
-                         <img src="lemon perfect ls.png" alt="Lifestyle Image 2">
-                         <img src="ororo ls.png" alt="Lifestyle Image 3">
-                         <img src="ATAHANA ls.png" alt="Lifestyle Image 1">
-                         <img src="BAOFENG ls.png" alt="Lifestyle Image 2">
-                         <img src="Generation Guard ls.png" alt="Lifestyle Image 3">
-                         <img src="Mosh ls.png" alt="Lifestyle Image 4">
-                         <img src="RAGU ls.png" alt="Lifestyle Image 5">
-                         <img src="Skin Clinic ls.png" alt="Lifestyle Image 6">
-                         <img src="create ls.png" alt="Lifestyle Image 1">
-                         <img src="lemon perfect ls.png" alt="Lifestyle Image 2">
-                         <img src="ororo ls.png" alt="Lifestyle Image 3">
-                         <img src="ATAHANA ls.png" alt="Lifestyle Image 1">
-                         <img src="BAOFENG ls.png" alt="Lifestyle Image 2">
-                         <img src="Generation Guard ls.png" alt="Lifestyle Image 3">
-                         <img src="Mosh ls.png" alt="Lifestyle Image 4">
-                         <img src="RAGU ls.png" alt="Lifestyle Image 5">
-                         <img src="Skin Clinic ls.png" alt="Lifestyle Image 6">
-                         <img src="create ls.png" alt="Lifestyle Image 1">
-                         <img src="lemon perfect ls.png" alt="Lifestyle Image 2">
-                         <img src="ororo ls.png" alt="Lifestyle Image 3">
-                         <img src="ATAHANA ls.png" alt="Lifestyle Image 1">
-                         <img src="BAOFENG ls.png" alt="Lifestyle Image 2">
-                         <img src="Generation Guard ls.png" alt="Lifestyle Image 3">
-                         <img src="Mosh ls.png" alt="Lifestyle Image 4">
-                         <img src="RAGU ls.png" alt="Lifestyle Image 5">
-                         <img src="Skin Clinic ls.png" alt="Lifestyle Image 6">
-                         <img src="create ls.png" alt="Lifestyle Image 1">
-                         <img src="lemon perfect ls.png" alt="Lifestyle Image 2">
-                         <img src="ororo ls.png" alt="Lifestyle Image 3">
-                     </div>
+                         <img src="ATAHANA ls.png" alt="Atahana Lifestyle Image">
+                         <img src="BAOFENG ls.png" alt="Baofeng Lifestyle Image">
+                         <img src="Generation Guard ls.png" alt="Generation Guard Lifestyle Image">
+                         <img src="Mosh ls.png" alt="Mosh Lifestyle Image">
+                         <img src="RAGU ls.png" alt="Ragu Lifestyle Image">
+                         <img src="Skin Clinic ls.png" alt="Skin Clinic Lifestyle Image">
+                         <img src="create ls.png" alt="Create Lifestyle Image">
+                         <img src="lemon perfect ls.png" alt="Lemon Perfect Lifestyle Image">
+                         <img src="ororo ls.png" alt="Ororo Lifestyle Image">
+                         <img src="ATAHANA ls.png" alt="Atahana Lifestyle Image">
+                         <img src="BAOFENG ls.png" alt="Baofeng Lifestyle Image">
+                         <img src="Generation Guard ls.png" alt="Generation Guard Lifestyle Image">
+                         <img src="Mosh ls.png" alt="Mosh Lifestyle Image">
+                         <img src="RAGU ls.png" alt="Ragu Lifestyle Image">
+                         <img src="Skin Clinic ls.png" alt="Skin Clinic Lifestyle Image">
+                         <img src="create ls.png" alt="Create Lifestyle Image">
+                         <img src="lemon perfect ls.png" alt="Lemon Perfect Lifestyle Image">
+                         <img src="ororo ls.png" alt="Ororo Lifestyle Image">
+                         </div>
                  </div>
             </div>
         </section>
