@@ -64,11 +64,10 @@
         }
         .brand-logos-slide {
             display: flex;
-            /* === CHANGED width to max-content === */
-            width: max-content; /* More reliable width calculation */
+            width: max-content; /* Calculate width based on content */
             white-space: nowrap;
-            /* Use scroll-left animation but run it in reverse */
-            animation: scroll-left 60s linear infinite reverse;
+            /* === Use the NEW scroll-right animation === */
+            animation: scroll-right 45s linear infinite;
         }
         .brand-logos-slide:hover {
             animation-play-state: paused;
@@ -76,6 +75,7 @@
         .brand-logos-slide img {
             height: 56px; /* h-14 */
             width: auto;
+            object-fit: contain; /* Use contain to prevent squishing */
             margin: 0 15px; /* Reduced spacing */
             filter: grayscale(100%);
             opacity: 0.7;
@@ -84,6 +84,11 @@
         .brand-logos-slide img:hover {
              filter: grayscale(0%);
              opacity: 1;
+        }
+        /* === ADDED Keyframes for scroll-right === */
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); } /* Start with second set visible */
+            100% { transform: translateX(50%); } /* End with first set visible */
         }
         /* === END OF BRAND LOGOS CSS === */
 
@@ -96,11 +101,10 @@
         }
         .lifestyle-slide {
             display: flex;
-             /* === CHANGED width to max-content === */
-            width: max-content; /* More reliable width calculation */
+            width: max-content; /* Calculate width based on content */
             white-space: nowrap;
             /* Use standard scroll-left animation */
-            animation: scroll-left 45s linear infinite; /* Kept original direction */
+            animation: scroll-left 45s linear infinite;
         }
         .lifestyle-slide:hover {
             animation-play-state: paused;
@@ -116,10 +120,9 @@
         .lifestyle-slide img:hover {
              transform: scale(1.03);
         }
-        /* Define scroll-left keyframes once */
+        /* Define scroll-left keyframes */
         @keyframes scroll-left {
             0% { transform: translateX(0); }
-            /* Move left by the width of the duplicated content */
             100% { transform: translateX(-100%); }
         }
         /* === END OF LIFESTYLE IMAGES CSS === */
@@ -186,16 +189,15 @@
                          <img src="create-transparent.png" alt="Create Logo">
                          <img src="Bertolli-transparent.png" alt="Bertolli Logo">
                          <img src="ororo-transparent.png" alt="Ororo Logo">
-
-                         <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
-                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
-                         <img src="mosh-transparent.png" alt="Mosh Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
-                         <img src="Huel-transparent.png" alt="Huel Logo">
-                         <img src="create-transparent.png" alt="Create Logo">
-                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
-                         <img src="ororo-transparent.png" alt="Ororo Logo">
+                         <img src="RAGU-transparent2.png" alt="RAGU Logo 2">
+                         <img src="OLIPOP-transparent2.png" alt="Olipop Logo 2">
+                         <img src="MTN_OPS-transparent2.png" alt="MTN OPS Logo 2">
+                         <img src="mosh-transparent2.png" alt="Mosh Logo 2">
+                         <img src="lemon_perfect-transparent2.png" alt="Lemon Perfect Logo 2">
+                         <img src="Huel-transparent2.png" alt="Huel Logo 2">
+                         <img src="create-transparent2.png" alt="Create Logo 2">
+                         <img src="Bertolli-transparent2.png" alt="Bertolli Logo 2">
+                         <img src="ororo-transparent2.png" alt="Ororo Logo 2">
                      </div>
                  </div>
             </div>
