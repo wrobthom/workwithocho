@@ -47,35 +47,34 @@
              transition: border-color 0.3s ease;
         }
 
-        /* === UPDATED Scroll Offset === */
         /* Target pseudo-element for scroll offset */
         section:target::before {
             content: "";
             display: block;
-            /* Updated height to match new nav height (h-40 = 160px) */
-            height: 160px;
-            /* Updated margin to match new nav height */
-            margin-top: -160px;
+            height: 160px; /* Match nav height (h-40) */
+            margin-top: -160px; /* Negative nav height */
             visibility: hidden;
         }
-        /* === END OF Scroll Offset Update === */
 
-        /* === CSS FOR SCROLLING BRAND LOGOS === */
+        /* === CSS FOR SCROLLING BRAND LOGOS (Small, Rightward) === */
         .brand-logos-container {
             overflow: hidden;
             position: relative;
             width: 100%;
         }
         .brand-logos-slide {
-            display: inline-flex;
+            display: flex;
+            /* === CHANGED width to max-content === */
+            width: max-content; /* More reliable width calculation */
             white-space: nowrap;
-            animation: scroll-right 45s linear infinite;
+            /* Use scroll-left animation but run it in reverse */
+            animation: scroll-left 60s linear infinite reverse;
         }
         .brand-logos-slide:hover {
             animation-play-state: paused;
         }
         .brand-logos-slide img {
-            height: 56px;
+            height: 56px; /* h-14 */
             width: auto;
             margin: 0 15px; /* Reduced spacing */
             filter: grayscale(100%);
@@ -86,23 +85,22 @@
              filter: grayscale(0%);
              opacity: 1;
         }
-        @keyframes scroll-right {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
         /* === END OF BRAND LOGOS CSS === */
 
 
-        /* === CSS FOR SCROLLING LIFESTYLE IMAGES === */
+        /* === CSS FOR SCROLLING LIFESTYLE IMAGES (Large, Leftward) === */
         .lifestyle-container {
             overflow: hidden;
             position: relative;
             width: 100%;
         }
         .lifestyle-slide {
-            display: inline-flex;
+            display: flex;
+             /* === CHANGED width to max-content === */
+            width: max-content; /* More reliable width calculation */
             white-space: nowrap;
-            animation: scroll-left 45s linear infinite;
+            /* Use standard scroll-left animation */
+            animation: scroll-left 45s linear infinite; /* Kept original direction */
         }
         .lifestyle-slide:hover {
             animation-play-state: paused;
@@ -118,8 +116,10 @@
         .lifestyle-slide img:hover {
              transform: scale(1.03);
         }
+        /* Define scroll-left keyframes once */
         @keyframes scroll-left {
             0% { transform: translateX(0); }
+            /* Move left by the width of the duplicated content */
             100% { transform: translateX(-100%); }
         }
         /* === END OF LIFESTYLE IMAGES CSS === */
@@ -130,11 +130,9 @@
 
     <nav class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-700/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-40">
-                <div class="flex-shrink-0">
+            <div class="flex justify-between items-center h-40"> <div class="flex-shrink-0">
                     <a href="#home" class="flex items-center">
-                        <img class="h-32 w-auto" src="logo-transparent.png" alt="OCHO Logo">
-                    </a>
+                        <img class="h-32 w-auto" src="logo-transparent.png" alt="OCHO Logo"> </a>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
@@ -180,14 +178,24 @@
                  <div class="brand-logos-container">
                      <div class="brand-logos-slide">
                          <img src="RAGU-transparent.png" alt="RAGU Logo">
-                         <img src="OLIPOP-transparent.png" alt="Brand B Logo">
-                         <img src="MTN_OPS-transparent.png" alt="Brand C Logo">
-                         <img src="mosh-transparent.png" alt="Brand D Logo">
-                         <img src="lemon_perfect-transparent.png" alt="Brand E Logo">
-                         <img src="Huel-transparent.png" alt="Brand F Logo">
-                         <img src="create-transparent.png" alt="Brand A Logo">
-                         <img src="Bertolli-transparent.png" alt="Brand B Logo">
-                         <img src="ororo-transparent.png" alt="Brand C Logo">
+                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
+                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
+                         <img src="mosh-transparent.png" alt="Mosh Logo">
+                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
+                         <img src="Huel-transparent.png" alt="Huel Logo">
+                         <img src="create-transparent.png" alt="Create Logo">
+                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
+                         <img src="ororo-transparent.png" alt="Ororo Logo">
+
+                         <img src="RAGU-transparent.png" alt="RAGU Logo">
+                         <img src="OLIPOP-transparent.png" alt="Olipop Logo">
+                         <img src="MTN_OPS-transparent.png" alt="MTN OPS Logo">
+                         <img src="mosh-transparent.png" alt="Mosh Logo">
+                         <img src="lemon_perfect-transparent.png" alt="Lemon Perfect Logo">
+                         <img src="Huel-transparent.png" alt="Huel Logo">
+                         <img src="create-transparent.png" alt="Create Logo">
+                         <img src="Bertolli-transparent.png" alt="Bertolli Logo">
+                         <img src="ororo-transparent.png" alt="Ororo Logo">
                      </div>
                  </div>
             </div>
